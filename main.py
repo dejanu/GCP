@@ -10,6 +10,9 @@ commands  = [{"name":"run", "description":"docker run -it IMAGE :create containe
              ]
 
 
+@app.route('/')
+def hello():
+    return "Simple API in bottle"
 
 @app.get('/commands')
 def getAll():
@@ -30,5 +33,5 @@ def addCommand():
     commands.append(new_command)
     return {'commands':commands}
 
-##if __name__ == "__main__":
-##    run(host="localhost",port=8080,reloader=True,debug=True)
+if __name__ == "__main__":
+    run(app,ost="localhost",port=8080,reloader=True,debug=True)
